@@ -1,12 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
 let input = document.getElementById('inputBox');
 let buttons = document.querySelectorAll('button');
-
 let string = "";
 let arr = Array.from(buttons);
+
 arr.forEach(button => {
     button.addEventListener('click' , (e) =>{
-        if(e.target.innerHTML=='='){
+
+        let buttonVal = e.target.innerHTML;
+
+        if(buttonVal === '='){
             string = eval(string);
             input.value = string;
         }
@@ -22,7 +25,6 @@ arr.forEach(button => {
             string += e.target.innerHTML;
             input.value = string;
         }
-
     });
 });
 });
