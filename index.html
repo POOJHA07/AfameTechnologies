@@ -10,61 +10,77 @@
 </head>
 
 <body>
+    
     <div class="whole-page">
-        <div class="introduction">
+
+        <div class="container" id="introduction">
+
+            <div class="intro-content">
+                <h1>Hello, Math Whiz!!!</h1>
+                <h3>Welcome to Your Friendly Calculator!!</h3>
+                
+                <p>Welcome to the cutest calculator on the web! Whether you're balancing your budget,<br> acing your homework, or just <br>playing with numbers, <br>I'm here to help.
+                </p>
+            
+            <!-- <div class="customization">
+            <h4 id="lt">Light theme</h4>
+            <label class="switch">
+                <input type="checkbox" id="toggleButton">
+                <span class="slider"></span>
+            </label>
+            <h4 id="dt">Dark theme</h4>
+
+            </div> -->
+            </div>
             
         </div>
 
 
-        <div class="calculator">
+        <div id="calculator" class="container">
+            <div id="calc-in">
             <input id="inputBox" type="text" placeholder="0">
 
-            <div class="s1">
-                <button>!</button>
-                <button>(</button>
-                <button>)</button>
+            <div id="buttons-grid">
+                <button class="splOp">!</button>
+                <button class="splOp">(</button>
+                <button class="splOp">)</button>
                 <button class="special">AC</button>
                 <button class="special">DEL</button>
-            </div>
+            
 
-            <div class="s2">
-                <button>sin</button>
-                <button>cos</button>
-                <button>tan</button>
-                <button>%</button>
-                <button>/</button>
-            </div>
-
-            <div class="s3">
+            
+                <button class="splOp">sin</button>
+                <button class="splOp">cos</button>
+                <button class="splOp">tan</button>
+                <button class="splOp">%</button>
+                <button class="splOp">/</button>
+            
                 <button>7</button>
                 <button>8</button>
                 <button>9</button>
                 <button class="splOp">&#8730</button>
                 <button class="splOp">*</button>
-            </div>
-
-            <div class="s4">
+            
                 <button>4</button>
                 <button>5</button>
                 <button>6</button>
                 <button class="splOp">^</button>
                 <button class="splOp">-</button>
-            </div>
-
-            <div class="s5">
+            
                 <button>1</button>
                 <button>2</button>
                 <button>3</button>
                 <button class="splOp">ln</button>
                 <button class="splOp">+</button>
-            </div>
+            
 
-            <div class="s6">
+            
                 <button>00</button>
                 <button>0</button>
                 <button>.</button>
                 <button class="splOp">log</button>
                 <button class="splOp">=</button>
+            </div>
             </div>
         </div>
     </div>
