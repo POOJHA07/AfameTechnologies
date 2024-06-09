@@ -1,202 +1,114 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background-color: #301a2f;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #301a2f;
 }
 
-h1{
+h1 {
   margin-top: 10vh;
   margin-bottom: 1vh;
-
 }
-h3{
+
+h3 {
   margin: 1vh;
   font-size: 22px;
 }
-p{
-  size: 2vh;
+
+p {
   margin: 6vh;
 }
 
-.customization{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 5vh;
-}
-
-
-
 .whole-page {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #301a2f;
-  margin: 5vh;
-  
 }
 
 .container {
   width: 40%;
   height: 90%;
-  margin-top: 1px;
+  margin: 0 5vh;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
-#introduction{
-  align-self: center;
+#introduction {
   width: 45%;
   border: 2px solid transparent;
   border-radius: 20px;
   padding: 40px;
   background-color: #835183;
-  margin-right: 30px;
-  box-shadow: 0 4px 8px rgba(10, 2, 9, 0.1); 
-  transition: box-shadow 0.3s ease;
-  
+  box-shadow: 0 4px 8px rgba(10, 2, 9, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-
-
-#introduction:hover{
+#introduction:hover {
   box-shadow: 0 8px 100px rgba(125, 105, 121, 0.2);
   transform: translateY(-5px);
 }
 
-#calculator{
+#calculator {
   width: 60%;
-  justify-content: center;
   background-color: #583058;
   border-radius: 20px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-#calculator:hover{
+#calculator:hover {
   box-shadow: 0 8px 100px rgba(125, 105, 121, 0.2);
   transform: translateY(-5px);
 }
 
-
-
-.s1 .special{
-    color: red;
-    font-size: 3vh;
+input::placeholder {
+  color: black;
 }
 
-.s1 button, .s2 button, .splOp{
-    color: rgb(3, 99, 3);
-    font-size: 3vh;
-    font-size: 3vh;
+input {
+  text-align: right;
+  height: 40px;
+  width: 370px;
+  padding: 10px;
+  margin: 35px 0 10px;
+  font-size: 25px;
+  background-color: #b798b7;
+  border: 2px solid transparent;
+  border-radius: 2px;
 }
 
-input::placeholder{
-    color: black;
+button {
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  margin: 8px 8px 2px;
+  border: 2px solid transparent;
+  background-color: #b798b7;
+  cursor: pointer;
+  border-radius: 100px;
 }
-
-input{
-    text-align: right;
-    height: 40px;
-    width: 370px;
-    padding: 10px;
-    margin-bottom: 10px;
-    margin-top: 35px;
-    font-size: 25px;
-    background-color: #b798b7;
-    border: 2px solid transparent;
-    border-radius: 2px;
-    
-}
- 
-button{
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    margin: 8px;
-    margin-bottom: 2px;
-    border: 2px solid transparent;
-    background-color: #b798b7;
-    cursor: pointer;
-    border-radius: 100px;
-} 
-
 
 button.special {
   color: red;
 }
 
+.splOp {
+  color: rgb(3, 99, 3);
+  font-size: 3vh;
+}
+
 #buttons-grid {
   width: 368px;
-  margin-top: 10px;
-  margin-left: 145px;
+  margin: 10px auto 0;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
 }
-
-#buttons-grid button {
-  width: 50px;
-  height: 50px;
-}
-
-  .switch {
-
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-  }
-
-  .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-  }
-
-  .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #f7c6f0;
-  border-radius: 20px;
-  -webkit-transition: .4s;
-  transition: .4s;
-  }
-
-  .slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  border-radius: 20px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-  }
-
-  input:checked + .slider {
-  background-color: #38072f;
-  }
-
-  input:focus + .slider {
-  box-shadow: 0 0 1px #38072f;
-  }
-
-  input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-  }

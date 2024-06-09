@@ -1,45 +1,99 @@
-document.addEventListener('DOMContentLoaded', () => {
-let input = document.getElementById('inputBox');
-let buttons = document.querySelectorAll('button');
-let string = "";
-let arr = Array.from(buttons);
+document.addEventListener('DOMContentLoaded', function() {
+    const inputBox = document.getElementById('inputBox');
+    const buttons = document.querySelectorAll('#buttons-grid button');
+    let inputString = '';
 
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const value = button.textContent;
 
-// // script.js
-// const toggleButton = document.getElementById('toggleButton');
+            switch (value) {
+                case '=':
+                    try {
+                        inputString = inputString.replace('^', '**')
+                                                 .replace('√', 'Math.sqrt')
+                                                 .replace('ln', 'Math.log')
+                                                 .replace('log', 'Math.log10');
+                        
+                        inputString = inputString.replace(/sin\(([^)]+)\)/g, (match, p1) => `Math.sin(${p1})`);
+                        inputString = inputString.replace(/cos\(([^)]+)\)/g, (match, p1) => `Math.cos(${p1})`);
+                        inputString = inputString.replace(/tan\(([^)]+)\)/g, (match, p1) => `Math.tan(${p1})`);
 
-// toggleButton.addEventListener('change', function() {
-//   if (this.checked) {
-//     console.log('Toggle button is ON');
-//     // Perform actions for ON state
-//   } else {
-//     console.log('Toggle button is OFF');
-//     // Perform actions for OFF state
-//   }
-// });
+                        inputString = inputString.replace(/(\d+(\.\d+)?)%/g, (match, p1) => (parseFloat(p1) / 100).toString());
 
+                        inputString = inputString.replace(/(\d+)!/g, (match, p1) => factorial(parseInt(p1)));
 
-arr.forEach(button => {
-    button.addEventListener('click' , (e) =>{
+                        inputBox.value = eval(inputString);
+                        inputString = inputBox.value;
+                    } catch (e) {
+                        inputBox.value = 'Error';
+                        inputString = '';
+                    }
+                    break;
 
-        let buttonVal = e.target.innerHTML;
+                case 'AC':
+                    inputString = '';
+                    inputBox.value = '0';
+                    break;
 
-        if(buttonVal === '='){
-            string = eval(string);
-            input.value = string;
-        }
-        else if(e.target.innerHTML=='AC'){
-            string = "";
-            input.value = string;
-        }
-        else if(e.target.innerHTML=='DEL'){
-            string = string.substring(0, string.length-1);
-            input.value = string;
-        }
-        else{
-            string += e.target.innerHTML;
-            input.value = string;
+                case 'DEL':
+                    inputString = inputString.slice(0, -1);
+                    inputBox.value = inputString || '0';
+                    break;
+
+                case 'sin':
+                case 'cos':
+                case 'tan':
+                case 'log':
+                case 'ln':
+                case '√':
+                    inputString += value + '(';
+                    inputBox.value = inputString;
+                    break;
+
+                default:
+                    inputString += value;
+                    inputBox.value = inputString;
+            }
+        });
+    });
+
+    inputBox.addEventListener('input', () => {
+        inputString = inputBox.value;
+    });
+
+    inputBox.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            try {
+                inputString = inputString.replace('^', '**')
+                                         .replace('√', 'Math.sqrt')
+                                         .replace('ln', 'Math.log')
+                                         .replace('log', 'Math.log10');
+                
+                inputString = inputString.replace(/sin\(([^)]+)\)/g, (match, p1) => `Math.sin(${p1})`);
+                inputString = inputString.replace(/cos\(([^)]+)\)/g, (match, p1) => `Math.cos(${p1})`);
+                inputString = inputString.replace(/tan\(([^)]+)\)/g, (match, p1) => `Math.tan(${p1})`);
+
+                inputString = inputString.replace(/(\d+(\.\d+)?)%/g, (match, p1) => (parseFloat(p1) / 100).toString());
+
+                inputString = inputString.replace(/(\d+)!/g, (match, p1) => factorial(parseInt(p1)));
+
+                inputBox.value = eval(inputString);
+                inputString = inputBox.value;
+            } catch (e) {
+                inputBox.value = 'Error';
+                inputString = '';
+            }
+            e.preventDefault();
         }
     });
-});
+
+    function factorial(n) {
+        if (n === 0 || n === 1) return 1;
+        let result = 1;
+        for (let i = 2; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
 });
