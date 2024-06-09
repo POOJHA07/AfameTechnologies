@@ -14,12 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
                                                  .replace('√', 'Math.sqrt')
                                                  .replace('ln', 'Math.log')
                                                  .replace('log', 'Math.log10');
-                        
+
                         inputString = inputString.replace(/sin\(([^)]+)\)/g, (match, p1) => `Math.sin(${p1})`);
                         inputString = inputString.replace(/cos\(([^)]+)\)/g, (match, p1) => `Math.cos(${p1})`);
                         inputString = inputString.replace(/tan\(([^)]+)\)/g, (match, p1) => `Math.tan(${p1})`);
 
-                        inputString = inputString.replace(/(\d+(\.\d+)?)%/g, (match, p1) => (parseFloat(p1) / 100).toString());
+                        inputString = inputString.replace(/(\d+(\.\d+)?)%/g, (match, p1) => `(${p1} / 100)`);
 
                         inputString = inputString.replace(/(\d+)!/g, (match, p1) => factorial(parseInt(p1)));
 
@@ -69,12 +69,12 @@ document.addEventListener('DOMContentLoaded', function() {
                                          .replace('√', 'Math.sqrt')
                                          .replace('ln', 'Math.log')
                                          .replace('log', 'Math.log10');
-                
+
                 inputString = inputString.replace(/sin\(([^)]+)\)/g, (match, p1) => `Math.sin(${p1})`);
                 inputString = inputString.replace(/cos\(([^)]+)\)/g, (match, p1) => `Math.cos(${p1})`);
                 inputString = inputString.replace(/tan\(([^)]+)\)/g, (match, p1) => `Math.tan(${p1})`);
 
-                inputString = inputString.replace(/(\d+(\.\d+)?)%/g, (match, p1) => (parseFloat(p1) / 100).toString());
+                inputString = inputString.replace(/(\d+(\.\d+)?)%/g, (match, p1) => `(${p1} / 100)`);
 
                 inputString = inputString.replace(/(\d+)!/g, (match, p1) => factorial(parseInt(p1)));
 
