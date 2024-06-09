@@ -3,10 +3,11 @@
   Welcome to the Web Calculator, your friendly tool for performing a variety of mathematical calculations. This calculator is designed to be easy to use and visually     appealing, with a wide range of functionalities to help you with your math needs.
 
 ## Features
-
+  
   - Basic arithmetic operations: addition, subtraction, multiplication, and division.
   - Advanced operations: percentages, power, square root, and factorial.
-  - Logarithmic operations.
+  - Trigonometric functions: `sin`, `cos`, `tan`.
+  - Logarithmic functions: natural logarithm (`ln`) and common logarithm (`log`).
   - Clear (AC) and Delete (DEL) functionalities to manage your input.
   - Responsive design for better user experience.
 
